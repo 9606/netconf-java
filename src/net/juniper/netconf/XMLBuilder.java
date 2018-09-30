@@ -8,11 +8,14 @@
 
 package net.juniper.netconf;
 
-import java.util.List;
-import javax.xml.parsers.*;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.util.List;
 
 /**
  * An <code>XMLBuilder</code> is used to create an XML object.This is useful to 
@@ -32,7 +35,7 @@ public class XMLBuilder {
     
     /**
      * Prepares a new <code>XMLBuilder<code/> object.
-     * @throws javax.xml.parsers.ParserConfigurationException
+     * @throws ParserConfigurationException
      */
     public XMLBuilder() throws ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance() ; 
@@ -89,7 +92,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewConfig(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree) {
+                               String elementLevelThree) {
         Document doc = impl.createDocument(null, "configuration", null);
         Element rootElement = doc.getDocumentElement();
         Element elementOne = doc.createElement(elementLevelOne);
@@ -115,7 +118,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewConfig(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree, String elementLevelFour) {
+                               String elementLevelThree, String elementLevelFour) {
         Document doc = impl.createDocument(null, "configuration", null);
         Element rootElement = doc.getDocumentElement();
         Element elementOne = doc.createElement(elementLevelOne);
@@ -203,7 +206,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewRPC(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree) {
+                            String elementLevelThree) {
         Document doc = impl.createDocument(null, "rpc", null);
         Element rootElement = doc.getDocumentElement();
         Element elementOne = doc.createElement(elementLevelOne);
@@ -229,7 +232,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewRPC(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree, String elementLevelFour) {
+                            String elementLevelThree, String elementLevelFour) {
         Document doc = impl.createDocument(null, "rpc", null);
         Element rootElement = doc.getDocumentElement();
         Element elementOne = doc.createElement(elementLevelOne);
@@ -312,7 +315,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewXML(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree) {
+                            String elementLevelThree) {
         Document doc = impl.createDocument(null, elementLevelOne, null);
         Element rootElement = doc.getDocumentElement();
         Element elementTwo = doc.createElement(elementLevelTwo);
@@ -336,7 +339,7 @@ public class XMLBuilder {
      * @return XML object.
      */
     public XML createNewXML(String elementLevelOne, String elementLevelTwo,
-            String elementLevelThree, String elementLevelFour) {
+                            String elementLevelThree, String elementLevelFour) {
         Document doc = impl.createDocument(null, elementLevelOne, null);
         Element rootElement = doc.getDocumentElement();
         Element elementTwo = doc.createElement(elementLevelTwo);

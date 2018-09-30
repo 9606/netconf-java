@@ -8,23 +8,22 @@
 
 package net.juniper.netconf;
 
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * An <code>XML</code> object represents XML content and provides methods to 
@@ -75,10 +74,10 @@ public class XML {
      *           The name of element to append.
      * @return The modified XML after appending the element.
      */
-    public XML append(String element) {
+    public net.juniper.netconf.XML append(String element) {
         Element newElement = ownerDoc.createElement(element);
         activeElement.appendChild(newElement);
-        return new XML(newElement);
+        return new net.juniper.netconf.XML(newElement);
     }
     
     /**
@@ -90,12 +89,12 @@ public class XML {
      *           The text value of the element to be appended
      * @return The modified XML after appending the element.
      */
-    public XML append(String element, String text) {
+    public net.juniper.netconf.XML append(String element, String text) {
         Element newElement = ownerDoc.createElement(element);
         Node textNode = ownerDoc.createTextNode(text);
         newElement.appendChild(textNode);
         activeElement.appendChild(newElement);
-        return new XML(newElement);
+        return new net.juniper.netconf.XML(newElement);
     }
     
     /**
@@ -144,10 +143,10 @@ public class XML {
      *         text value as the key value.  
      * @return The modified XML after appending the element.       
      */
-    public XML append(String element, HashMap map) {
+    public net.juniper.netconf.XML append(String element, HashMap map) {
         Element newElement = ownerDoc.createElement(element);
         activeElement.appendChild(newElement);
-        XML newXML = new XML(newElement);
+        net.juniper.netconf.XML newXML = new net.juniper.netconf.XML(newElement);
         newXML.append(map);
         return newXML;
     }
@@ -229,7 +228,7 @@ public class XML {
      *          The path should be "a/b/c"
      * @return The modified XML
      */
-    public XML addPath(String path) {
+    public net.juniper.netconf.XML addPath(String path) {
         String[] elements = path.split("/");
         Element newElement = null;
         for (int elementCounter=0; elementCounter< elements.length
@@ -237,7 +236,7 @@ public class XML {
             newElement = ownerDoc.createElement(elements[elementCounter]);
             activeElement.appendChild(newElement);
         }
-        return new XML(newElement);
+        return new net.juniper.netconf.XML(newElement);
     }
     
     /**
